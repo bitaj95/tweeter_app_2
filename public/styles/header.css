@@ -9,7 +9,9 @@ header {
   justify-content: center; 
   align-items: center;
   position: absolute;
-  top: 140px;
+  top: 120px;
   height: 400px;
   width: 100%;
+  background-color: #87cefa;
+  background-image: url("../images/nice-snow.png");
 }
