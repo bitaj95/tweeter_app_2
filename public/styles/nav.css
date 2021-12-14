@@ -2,13 +2,24 @@
 
 nav {
   height: 120px;
-  width: 100%;
+  display: flex;
   background-color: #4056A1;
+  justify-content: space-between;
   color: #FFFFFF;
   padding: 1.5em;
+  position: fixed;
+  top : 0;
+  right : 0;
+  left: 0
 }
 
-nav span {
+.tweeter {
   font-family: 'Bungee', cursive, sans-serif;
 }
 
+.write-a-new-tweet {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
