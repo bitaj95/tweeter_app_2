@@ -1,7 +1,13 @@
 $(document).ready(function() {
   
   $("textarea").on('keyup', function() {
-    console.log(140 - $('textarea').val().length); //The this keyword here refers to something else!
-  });
+    let charactersRemaining = 140 - $(this).val().length;
+    $(this).nextAll().find('.counter').text(charactersRemaining);
 
+    if (charactersRemaining < 0) {
+      $(this).nextAll().find('.counter').css("color", "red");
+    } else {
+      $(this).nextAll().find('.counter').css("color", "black");
+    }
+  });
 });
