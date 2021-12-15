@@ -22,6 +22,7 @@ textarea {
 .bottom-form {
   display: flex;
   margin-top: 0.5em;
+  justify-content: space-between;
 }
 
 button {
@@ -33,5 +34,4 @@ button {
 
 .counter {
   display: flex;
-  margin-left: auto;
 }

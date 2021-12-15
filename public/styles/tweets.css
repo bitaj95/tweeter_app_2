@@ -46,12 +46,7 @@
   margin: 1em;
 }
 
-.tweet-icons {
-  color: navy;
-  margin: 1em;
-}
-
-.fas:hover{
+.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
   color: goldenrod;
 }
 
