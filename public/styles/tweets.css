@@ -1,10 +1,25 @@
 .tweet-container {
   display: flex;
   margin: 1em;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
   border: 1px solid black;
 }
 
-.tweet-icons {
+.tweet-footer {
   display: flex;
-  margin-left: auto;
+  justify-content: space-between;
+  border-top: 5px solid black;
+}
+
+.tweet-icons {
+  margin: 1em;
+}
+
+.date {
+  margin: 1em;
 }
