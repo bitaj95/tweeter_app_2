@@ -1,6 +1,10 @@
 .tweet-container {
   display: flex;
-  position: relative;
   margin: 1em;
   border: 1px solid black;
+}
+
+.tweet-icons {
+  display: flex;
+  margin-left: auto;
 }
