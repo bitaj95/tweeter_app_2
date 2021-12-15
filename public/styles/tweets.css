@@ -1,6 +1,6 @@
 .tweet-container {
   display: flex;
-  margin: 1em;
+  margin: 2em;
 }
 
 .tweet {
@@ -12,14 +12,24 @@
 
 .tweet-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding: 1em;
+}
+
+.name {
+  margin-left: 1em;
+}
+
+.handle {
+  margin-left: auto;
+  color: lightsteelblue;
+  font-weight: bold;
+}
+
+
+.tweet-content {
   margin: 1em;
 }
-
-.avatar {
-
-}
-
 
 .tweet-footer {
   display: flex;
@@ -28,6 +38,7 @@
 }
 
 .tweet-icons {
+  color: navy;
   margin: 1em;
 }
 
