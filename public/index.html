@@ -4,6 +4,9 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
@@ -20,6 +23,9 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+    <!--App JS-->
+    <script src="scripts/composer-char-counter.js"></script>
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -50,7 +56,6 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
@@ -62,7 +67,6 @@
           </div>
         </form>
       </section>
-
     </main>
   </body>
 </html>
