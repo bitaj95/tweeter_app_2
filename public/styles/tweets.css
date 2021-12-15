@@ -1,5 +1,6 @@
 .tweet-container {
   display: flex;
+  flex-direction: column;
   margin: 2em;
 }
 
@@ -8,6 +9,7 @@
   flex-direction: column;
   flex-basis: 100%;
   border: 2px solid black;
+  margin: 1em;
 }
 
 .tweet:hover{
