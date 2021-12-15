@@ -10,6 +10,17 @@
   border: 1px solid black;
 }
 
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.avatar {
+
+}
+
+
 .tweet-footer {
   display: flex;
   justify-content: space-between;
