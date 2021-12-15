@@ -7,7 +7,11 @@
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
+}
+
+.tweet:hover{
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 .tweet-header {
@@ -40,6 +44,15 @@
 .tweet-icons {
   color: navy;
   margin: 1em;
+}
+
+.tweet-icons {
+  color: navy;
+  margin: 1em;
+}
+
+.fas:hover{
+  color: goldenrod;
 }
 
 .date {
