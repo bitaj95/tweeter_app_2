@@ -7,7 +7,6 @@
 $(document).ready(function() {
 
   const createTweetElement = function (tweetObject) {
-    
     const element = `
           <article class="tweet">
             <header class="tweet-header">
@@ -46,11 +45,10 @@ $(document).ready(function() {
       return element;
   }
 
-
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
+    // takes value and appends it to the tweets container
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $('#tweets-container').append($tweet);
@@ -84,7 +82,8 @@ $(document).ready(function() {
 
   renderTweets(data);
 
-
+  /*   Serialize the form data
+  Use the jQuery library to submit a POST request that sends the serialized data to the server */
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
     const $data = $(this).serialize()
@@ -93,14 +92,35 @@ $(document).ready(function() {
       method: 'POST',
       data: $data
     })
-
     .done( (data) => {
       console.log("it worked", data);
     })
-
     .fail( (err) => {
       console.log("Error", err)
     })
-
   });  
+
+  
+  //Fetching tweets with Ajax
+  const loadtweets = function () {
+    $("#submit-tweet").on("submit", function(event) {
+      event.preventDefault();
+      const $data = $(this).serialize()
+      $.ajax({
+        url: '/tweets',
+        method: 'GET',
+        data: $data
+      })
+      .done( (data) => {
+        renderTweets(data);
+      })
+      .fail( (err) => {
+        console.log("Error", err)
+      })
+    });  
+  }
+
+  loadtweets();
+
 }); 
+
