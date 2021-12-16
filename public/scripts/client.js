@@ -1,12 +1,14 @@
 
 $(document).ready(function() {
+
+  
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  //HTML format structure of tweet
+  //HTML format structure of each tweet
   const createTweetElement = function (tweetObject) {
     const element = `
           <article class="tweet">
@@ -26,7 +28,6 @@ $(document).ready(function() {
                 ${escape(tweetObject.content.text)}
               </p>
             </div>
-            
             <footer class="tweet-footer">
               <div class="date">
                 ${timeago.format(tweetObject.created_at)}
@@ -42,9 +43,8 @@ $(document).ready(function() {
       return element;
   };
 
-  /*  Function that loops through array of tweet object, call createTweetElement on each tweet, 
+  /* Function that loops through array of tweet object, call createTweetElement on each tweet, 
     then prepend to '#tweets-container'. */
-
   const renderTweets = function(tweets) {
     //clear all child node of #tweets-container
     $('#tweets-container').empty();
@@ -53,25 +53,35 @@ $(document).ready(function() {
       $('#tweets-container').prepend($tweet);
     }
   };
-
-
+  
 
   /*Event listener to submit a POST request that sends serialized data to server using AJAX */
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
     const $data = $(this).serialize();
+    //Ensure error messages are cleared.
+    $(".error-message").empty();
+    $(".errors").removeClass("error-message");
+
     
     //Get the tweet message (excluding spaces) for validation purposes
     const $text = $(this).find("textarea").val().trim();
-
-
+    
     //Validation checks before possible POST request. Ensure tweet not empty, and <140 characters.
     if (!$text) {
-      return alert("Your tweet is empty!");
-    } else if ($text.length > 140) {
-      return alert("Sorry, your tweet is too long! A tweet can only have a maximum of 140 characters.")
-    } else {
 
+      //Display error message if tweet blank.
+      const $error = "Oops! You can't post an empty tweet."
+      $('.errors').addClass("error-message");
+      $('.error-message').append($error);
+    } else if ($text.length > 140) {
+
+      //Display error message if tweet is too long. 
+      const $error = `Oops! Your tweet is too long. A tweet can only have a maximum of 140 characters.`
+      $('.errors').addClass("error-message");
+      $('.error-message').append($error);
+
+    } else {
       //Validations passed, send POST request.
       $.ajax({
         url: '/tweets',
@@ -86,8 +96,9 @@ $(document).ready(function() {
       })
     }
   });  
+  
 
-  //Fetching tweets with Ajax
+  //Function for fetching tweets with AJAX
   const loadtweets = () => {
       $.ajax({
         url: '/tweets',
@@ -101,7 +112,7 @@ $(document).ready(function() {
       })
   }
 
-  //Display tweets already posted when start app. 
+  //Display tweets already posted at start. 
  loadtweets();
 
 }); 
