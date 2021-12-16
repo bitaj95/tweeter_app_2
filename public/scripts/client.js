@@ -87,9 +87,20 @@ $(document).ready(function() {
 
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
-  });
+    const $data = $(this).serialize()
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: $data
+    })
 
+    .done( (data) => {
+      console.log("it worked", data);
+    })
 
-  
+    .fail( (err) => {
+      console.log("Error", err)
+    })
+
+  });  
 }); 
-
