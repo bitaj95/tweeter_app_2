@@ -41,17 +41,22 @@ $(document).ready(function() {
       `;
       return element;
   }
+  
+  
 
+  // loops through tweets
+  // calls createTweetElement for each tweet
+  // takes value and appends it to the tweets container
   const renderTweets = function(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes value and appends it to the tweets container
+    //clear all child node of #tweets-container
+    $('#tweets-container').empty();
+    
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $('#tweets-container').append($tweet);
     }
   }
-
+/* 
   const data = [
     {
       "user": {
@@ -77,7 +82,7 @@ $(document).ready(function() {
     }
   ]
 
-  renderTweets(data);
+  renderTweets(data); */
 
   /*Event listener to submit a POST request that sends serialized data to server using AJAX */
   $("#submit-tweet").on("submit", function(event) {
@@ -102,7 +107,7 @@ $(document).ready(function() {
         data: $data,
       })
       .done( (data) => {
-        console.log("it worked:", data);
+        loadtweets();
       })
       .fail( (err) => {
         console.log("Error", err)
@@ -130,10 +135,8 @@ $(document).ready(function() {
       })
     });  
   }
-
-  loadtweets();
-
-  //
+  
+ loadtweets();
 
 }); 
 
