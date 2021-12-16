@@ -9,21 +9,18 @@ $(document).ready(function() {
   const createTweetElement = function (tweetObject) {
     const element = `
           <article class="tweet">
+
             <header class="tweet-header">
-              
               <div class="avatar">
               <img src=${tweetObject.user.avatars} />
               </div>
-
               <div class="name">
                 ${tweetObject.user.name}
               </div>
-
               <div class="handle">
               ${tweetObject.user.handle}
               </div> 
             </header>
-
             <div class="tweet-content">
               <p>
                 ${tweetObject.content.text}
@@ -82,23 +79,37 @@ $(document).ready(function() {
 
   renderTweets(data);
 
-  /*   Serialize the form data
-  Use the jQuery library to submit a POST request that sends the serialized data to the server */
+  /*Event listener to submit a POST request that sends serialized data to server using AJAX */
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
     const $data = $(this).serialize()
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $data
-    })
-    .done( (data) => {
-      console.log("it worked", data);
-    })
-    .fail( (err) => {
-      console.log("Error", err)
-    })
+    
+    //Get the tweet message (excluding spaces) for validation purposes
+    const $text = $(this).find("textarea").val().trim();
+
+
+    //Validation checks before possible POST request. Ensure tweet not empty, and <140 characters.
+    if (!$text) {
+      return alert("Your tweet is empty!");
+    } else if ($text.length > 140) {
+      return alert("Sorry, your tweet is too long! A tweet can only have a maximum of 140 characters.")
+    } else {
+
+      //Validations passed, send POST request.
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $data,
+      })
+      .done( (data) => {
+        console.log("it worked:", data);
+      })
+      .fail( (err) => {
+        console.log("Error", err)
+      })
+    }
   });  
+    
 
   
   //Fetching tweets with Ajax
@@ -121,6 +132,8 @@ $(document).ready(function() {
   }
 
   loadtweets();
+
+  //
 
 }); 
 
