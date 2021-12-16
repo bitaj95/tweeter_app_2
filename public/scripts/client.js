@@ -84,5 +84,12 @@ $(document).ready(function() {
 
   renderTweets(data);
 
+
+  $("#submit-tweet").on("submit", function(event) {
+    event.preventDefault();
+  });
+
+
+  
 }); 
 
