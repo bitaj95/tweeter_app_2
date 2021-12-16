@@ -1,52 +1,61 @@
-//HTML format structure of tweet
-const createTweetElement = function (tweetObject) {
-  const element = `
-        <article class="tweet">
-          <header class="tweet-header">
-            <div class="avatar">
-            <img src=${tweetObject.user.avatars} />
-            </div>
-            <div class="name">
-              ${tweetObject.user.name}
-            </div>
-            <div class="handle">
-            ${tweetObject.user.handle}
-            </div> 
-          </header>
-          <div class="tweet-content">
-            <p>
-              ${tweetObject.content.text}
-            </p>
-          </div>
-          
-          <footer class="tweet-footer">
-            <div class="date">
-              ${timeago.format(tweetObject.created_at)}
-            </div>
-            <div class="tweet-icons">
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-retweet"></i>
-              <i class="fas fa-heart"></i>
-            </div>
-            </footer>
-        </article>
-    `;
-    return element;
-};
-
-/*  Function that loops through array of tweet object, call createTweetElement on each tweet, 
-  then prepend to '#tweets-container'. */
-
-const renderTweets = function(tweets) {
-  //clear all child node of #tweets-container
-  $('#tweets-container').empty();
-  for (const tweet of tweets) {
-    const $tweet = createTweetElement(tweet);
-    $('#tweets-container').prepend($tweet);
-  }
-};
 
 $(document).ready(function() {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  //HTML format structure of tweet
+  const createTweetElement = function (tweetObject) {
+    const element = `
+          <article class="tweet">
+            <header class="tweet-header">
+              <div class="avatar">
+              <img src=${tweetObject.user.avatars} />
+              </div>
+              <div class="name">
+                ${tweetObject.user.name}
+              </div>
+              <div class="handle">
+              ${tweetObject.user.handle}
+              </div> 
+            </header>
+            <div class="tweet-content">
+              <p>
+                ${escape(tweetObject.content.text)}
+              </p>
+            </div>
+            
+            <footer class="tweet-footer">
+              <div class="date">
+                ${timeago.format(tweetObject.created_at)}
+              </div>
+              <div class="tweet-icons">
+                <i class="fas fa-flag"></i>
+                <i class="fas fa-retweet"></i>
+                <i class="fas fa-heart"></i>
+              </div>
+              </footer>
+          </article>
+      `;
+      return element;
+  };
+
+  /*  Function that loops through array of tweet object, call createTweetElement on each tweet, 
+    then prepend to '#tweets-container'. */
+
+  const renderTweets = function(tweets) {
+    //clear all child node of #tweets-container
+    $('#tweets-container').empty();
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet);
+    }
+  };
+
+
+
   /*Event listener to submit a POST request that sends serialized data to server using AJAX */
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
