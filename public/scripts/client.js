@@ -1,13 +1,7 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
+//HTML format structure of tweet
 const createTweetElement = function (tweetObject) {
   const element = `
         <article class="tweet">
-
           <header class="tweet-header">
             <div class="avatar">
             <img src=${tweetObject.user.avatars} />
@@ -38,27 +32,25 @@ const createTweetElement = function (tweetObject) {
         </article>
     `;
     return element;
-}
+};
 
-/*   Function that loops through array of tweet object, call createTweetElement on each tweet, 
+/*  Function that loops through array of tweet object, call createTweetElement on each tweet, 
   then prepend to '#tweets-container'. */
 
-  const renderTweets = function(tweets) {
-    //clear all child node of #tweets-container
-    $('#tweets-container').empty();
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet);
-    }
+const renderTweets = function(tweets) {
+  //clear all child node of #tweets-container
+  $('#tweets-container').empty();
+  for (const tweet of tweets) {
+    const $tweet = createTweetElement(tweet);
+    $('#tweets-container').prepend($tweet);
   }
-
+};
 
 $(document).ready(function() {
-
   /*Event listener to submit a POST request that sends serialized data to server using AJAX */
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
-    const $data = $(this).serialize()
+    const $data = $(this).serialize();
     
     //Get the tweet message (excluding spaces) for validation purposes
     const $text = $(this).find("textarea").val().trim();
@@ -85,18 +77,12 @@ $(document).ready(function() {
       })
     }
   });  
-    
 
-  
   //Fetching tweets with Ajax
-  const loadtweets = function () {
-    $("#submit-tweet").on("submit", function(event) {
-      event.preventDefault();
-      const $data = $(this).serialize()
+  const loadtweets = () => {
       $.ajax({
         url: '/tweets',
         method: 'GET',
-        data: $data
       })
       .done( (data) => {
         renderTweets(data);
@@ -104,9 +90,9 @@ $(document).ready(function() {
       .fail( (err) => {
         console.log("Error", err)
       })
-    });  
   }
 
+  //Display tweets already posted when start app. 
  loadtweets();
 
 }); 
