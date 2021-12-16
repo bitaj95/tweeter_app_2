@@ -34,7 +34,7 @@ $(document).ready(function() {
             
             <footer class="tweet-footer">
               <div class="date">
-                ${tweetObject.created_at}
+                ${timeago.format(tweetObject.created_at)}
               </div>
               <div class="tweet-icons">
                 <i class="fas fa-flag"></i>
@@ -64,6 +64,6 @@ $(document).ready(function() {
 
   // Test / driver code (temporary)
   console.log($tweet); // to see what it looks like
-  $('.tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 });
