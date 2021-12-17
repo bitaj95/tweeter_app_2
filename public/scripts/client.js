@@ -1,7 +1,5 @@
 
 $(document).ready(function() {
-
-  
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -72,13 +70,13 @@ $(document).ready(function() {
     if (!$text) {
 
       //Display error message if tweet blank.
-      const $error = "Oops! You can't post an empty tweet."
+      const $error = "Oops! You can't post an empty tweet.";
       $('.errors').addClass("error-message");
       $('.error-message').append($error);
     } else if ($text.length > 140) {
 
       //Display error message if tweet is too long. 
-      const $error = `Oops! Your tweet is too long. A tweet can only have a maximum of 140 characters.`
+      const $error = `Oops! Your tweet is too long. A tweet can only have a maximum of 140 characters.`;
       $('.errors').addClass("error-message");
       $('.error-message').append($error);
 
