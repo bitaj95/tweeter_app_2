@@ -1,21 +1,20 @@
-.new-tweet {
-  flex-direction: column;
-  display: flex;
-  margin: auto;
-}
-
 form {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
+.new-tweet {
+  flex-direction: column;
+  display: flex;
+  margin: auto;
+}
+
 textarea {
   display: flex;
   border: none;
+  flex-basis: 100%;
   border-bottom: 5px solid black;
-  height: 40px;
-  width: 1000px;
   background-color: transparent;
 }
 
