@@ -1,19 +1,4 @@
 /* Navigation Bar Styling */
-
-nav {
-  height: 120px;
-  width: 100%;
-  display: flex;
-  background-color: #4056A1;
-  justify-content: space-between;
-  color: #FFFFFF;
-  padding: 1.5em;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
 .tweeter {
   font-family: 'Bungee', cursive, sans-serif;
 }
@@ -27,4 +12,18 @@ nav div {
 
 .fa-angle-double-down {
   color: red;
+}
+
+nav {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  background-color: #4056A1;
+  justify-content: space-between;
+  color: #FFFFFF;
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 }

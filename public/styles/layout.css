@@ -13,9 +13,7 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
-  display: flex;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
@@ -26,7 +24,12 @@ body {
 main {
   width: 90vw;
   margin: auto;
-  top: 520px;
+  position: relative;
+}
+
+.container {
+  top: 400px;
+  
 }
 
 @media screen and (min-width: 1024px) {
@@ -35,16 +38,21 @@ main {
     align-items: flex-start;
   }
 
+  .container {
+    top: 0;
+  }
+
   .profile {
-    position: sticky;
-    margin: 2em;
+    position: fixed;
+    margin: 1em;
+    padding-top: 1em;
     width: 40vw;
     height: 400px;
+    border-radius: 10%;
   }
 
   main {
-    top: 120px;
-    margin-top: 2em;
     width: 50vw;
+    margin-right: 2em;
   }
 }
