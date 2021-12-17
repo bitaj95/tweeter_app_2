@@ -59,6 +59,7 @@ $(document).ready(function() {
   $("#submit-tweet").on("submit", function(event) {
     event.preventDefault();
     const $data = $(this).serialize();
+
     //Ensure error messages are cleared.
     $(".error-message").empty();
     $(".errors").removeClass("error-message");
@@ -95,6 +96,9 @@ $(document).ready(function() {
         console.log("Error", err)
       })
     }
+    //clear text area after tweet is submitted.
+    $('#tweet-text').val('');
+
   });  
   
 
