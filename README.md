@@ -6,6 +6,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
+<img width="1436" alt="Screen Shot 2021-12-17 at 4 37 02 PM" src="https://user-images.githubusercontent.com/79466802/146612420-331c43e6-af49-4806-a005-c84ba622b91b.png">
+
+
+<img width="1429" alt="Screen Shot 2021-12-17 at 4 38 03 PM" src="https://user-images.githubusercontent.com/79466802/146612443-3eddfcd9-49cb-49a8-bf50-95b062c689bf.png">
 
 ## Getting Started
 
