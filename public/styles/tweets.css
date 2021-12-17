@@ -31,15 +31,16 @@
   font-weight: bold;
 }
 
-
 .tweet-content {
-  margin: 1em;
+  display: flex;
+  padding-left: 1em;
 }
 
 .tweet-footer {
   display: flex;
   justify-content: space-between;
-  border-top: 5px solid black;
+  margin: 1em;
+  border-top: 3px solid black;
 }
 
 .tweet-icons {
@@ -49,6 +50,10 @@
 
 .fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
   color: goldenrod;
+}
+
+.fa-flag, .fa-retweet, .fa-heart {
+  margin: 0 0.5em 0 0.5em;
 }
 
 .date {
