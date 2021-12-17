@@ -95,9 +95,9 @@ $(document).ready(function() {
       .fail( (err) => {
         console.log("Error", err)
       })
+      //clear text area after tweet is submitted.
+      $('#tweet-text').val('');
     }
-    //clear text area after tweet is submitted.
-    $('#tweet-text').val('');
 
   });  
   
